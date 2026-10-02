@@ -1,13 +1,12 @@
 class Solution(object):
-    def maxDepth(self, root):
-        """
-        :type root: Optional[TreeNode]
-        :rtype: int
-        """
+    def invertTree(self, root):
+
         if not root:
-            return 0
+            return None
 
-        left = self.maxDepth(root.left)
-        right = self.maxDepth(root.right)
+        root.left, root.right = root.right, root.left
 
-        return 1 + max(left, right)
+        self.invertTree(root.right)
+        self.invertTree(root.left)
+
+        return root
