@@ -4,7 +4,7 @@ def isValidBST(self, root):
     :rtype: bool
     """
 
-    stack = []
+    stack = [root]
     cur = root
     prev = None
 
